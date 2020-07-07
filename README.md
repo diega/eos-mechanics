@@ -3,6 +3,14 @@ This is a collection of EOS contracts and utilities in use by the [EOS Mechanics
 
 Please visit us on [Telegram](https://t.me/EOSMechanics) for any feedback or questions. 
 
+## Building
+This project uses [CMake](https://cmake.org/) as building tool. You need to know the location where your CDT is installed to be able to set the `CMAKE_TOOLCHAIN_FILE` variable when invoking the CMake build command. E.g.:
+```shell
+$ cmake -DCMAKE_TOOLCHAIN_FILE=/usr/local/opt/eosio.cdt/lib/cmake/eosio.cdt/EosioWasmToolchain.cmake --build .
+$ make
+```
+This comand will generate the [Wasm](https://webassembly.org/) and the [ABI](https://developers.eos.io/welcome/latest/getting-started/smart-contract-development/understanding-ABI-files/#what-is-an-abi) to deploy into your network.
+
 ## Benchmarks
 The benchmarks below are EOS contracts which are set on the `eosmechanics` account on Mainnet, CryptoKylin Testnet, and Jungle Testnet. They are executed during each block producers' schedule, and the timings recorded on-chain using the standard `cpu_usage_us` transaction field. The data is [freely available](https://eosflare.io/account/eosmechanics) to view and analyze, and we encourage doing so to help identify issues and improve block producer performance.
 
